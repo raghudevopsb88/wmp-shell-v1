@@ -9,7 +9,7 @@ cp pg_hba.conf /var/lib/pgsql/16/data/pg_hba.conf
 
 systemctl restart postgresql-16
 
-postgres /usr/pgsql-16/bin/psql -f schema.sql
+sudo -u postgres /usr/pgsql-16/bin/psql -f schema.sql
 
 
 
