@@ -3,6 +3,13 @@ dnf -qy module disable postgresql
 dnf install -y postgresql16-server postgresql16
 /usr/pgsql-16/bin/postgresql-16-setup initdb
 
+sed -i "/listen_addresses/ c listen_addresses = '*'" /var/lib/pgsql/16/data/postgresql.conf
+#sed -i '/replication/! s/peer/trust/' /var/lib/pgsql/16/data/pg_hba.conf
+cp pg_hba.conf /var/lib/pgsql/16/data/pg_hba.conf
+
+systemctl restart postgresql-16
+
+postgres /usr/pgsql-16/bin/psql -f schema.sql
 
 
 
