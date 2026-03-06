@@ -4,8 +4,7 @@ dnf install -y nginx
 
 cp nginx.conf /etc/nginx/nginx.conf
 
-systemctl enable nginx
-systemctl start nginx
+
 
 curl -fsSL https://rpm.nodesource.com/setup_22.x | bash -
 dnf install -y nodejs
@@ -26,4 +25,5 @@ rm -rf /usr/share/nginx/html/*
 cp -r /tmp/frontend/dist/* /usr/share/nginx/html/
 
 
+systemctl enable nginx
 systemctl restart nginx
